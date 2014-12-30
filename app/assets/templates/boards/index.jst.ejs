@@ -1,0 +1,6 @@
+<h1>All the boards</h1>
+<ul>
+  <% boards.each(function (board) { %>
+    <li><%= board.escape("title") %></li>
+  <% }); %>
+</ul>
