@@ -1,4 +1,4 @@
-TrelloClone.Views.ListsShow = Backbone.View.extend({
+TrelloClone.Views.ListsShow = Backbone.CompositeView.extend({
 
   tagName: "li",
 
@@ -9,16 +9,17 @@ TrelloClone.Views.ListsShow = Backbone.View.extend({
   template: JST['lists/show'],
 
   render: function () {
-    this.$el.html(this.template( {
-      list: this.model,
-      cards: this.model.cards()
-    }));
+    this.$el.html(this.template( { list: this.model }));
+
+    this.model.cards().each( function (card) {
+      var cardView = new TrelloClone.Views.CardsShow( { model: card });
+      this.addSubview("dl.list", cardView);
+    }.bind(this));
+
+    var cardFormView = new TrelloClone.Views.CardsNew( { model: new TrelloClone.Models.Card() } );
+    this.addSubview("dl.list", cardFormView);
 
     return this
-  },
-
-  leave: function () {
-    this.remove();
   },
 
   deleteList: function (event) {

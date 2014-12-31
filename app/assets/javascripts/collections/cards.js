@@ -4,6 +4,8 @@ TrelloClone.Collections.Cards = Backbone.Collection.extend({
     this.list = options.list;
   },
 
-  model: TrelloClone.Models.Card
+  model: TrelloClone.Models.Card,
+
+  url: "/api/cards"
 
 });

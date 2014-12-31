@@ -1,0 +1,16 @@
+<h4>New Card</h4>
+
+<form class="new-card">
+
+  <label for="card_title">Title:</label>
+  <input type="text"
+  name="card[title]"
+  id="card_title"
+  value="<%= card.escape("title")%>">
+
+  <label for="card_description">Description:</label>
+  <textarea name="card[description]" id="card_description"><%=card.escape("description")%></textarea>
+
+  <input type="submit" value="Create Card!">
+
+</form>
