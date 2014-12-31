@@ -10,7 +10,3 @@ window.TrelloClone = {
     Backbone.history.start();
   }
 };
-
-$(function() {
-  window.TrelloClone.initialize();
-});
