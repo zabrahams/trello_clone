@@ -6,6 +6,10 @@ TrelloClone.Views.BoardsShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync", this.render);
   },
 
+  events: {
+    "click button.delete-board": "deleteBoard"
+  },
+
   template: JST['boards/show'],
 
   render: function () {
@@ -16,6 +20,18 @@ TrelloClone.Views.BoardsShow = Backbone.CompositeView.extend({
     }.bind(this));
 
     return this;
+  },
+
+  deleteBoard: function () {
+    this.model.destroy({
+      success: function () {
+        Backbone.history.navigate("", { trigger: true });
+      },
+
+      error: function () {
+        console.log("Model refused to be destroyed");
+      }
+    });
   }
 
 });
