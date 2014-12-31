@@ -1,6 +1,9 @@
-<h2><%= list.escape("title") %></h2>
+<section class="list-container group">
+  <h2><%= list.escape("title") %></h2>
 
-<dl class="list">
-</dl>
+  <dl class="list">
+  </dl>
 
-<button class="delete-list" data-id="<%= list.id %>">Delete List!</button>
+  <button class="add-card">Add Card!</button>
+  <button class="delete-list" data-id="<%= list.id %>">Delete List!</button>
+</section>
