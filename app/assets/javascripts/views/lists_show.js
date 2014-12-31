@@ -1,7 +1,7 @@
 TrelloClone.Views.ListsShow = Backbone.CompositeView.extend({
 
   initialize: function () {
-    this.listenTo(this.model, "update", function () {  // Not sure why the one liner doesn't work...
+    this.listenTo(this.model, "update", function () {
       this.collection.board.fetch();
     }.bind(this)
   )},
@@ -18,7 +18,7 @@ TrelloClone.Views.ListsShow = Backbone.CompositeView.extend({
     this.$el.html(this.template( { list: this.model }));
 
     this.model.cards().each( function (card) {
-      var cardView = new TrelloClone.Views.CardsShow( { model: card });
+      var cardView = new TrelloClone.Views.CardsShow( { model: card, collection: this.model.cards() });
       this.addSubview("dl.list", cardView);
     }.bind(this));
 
