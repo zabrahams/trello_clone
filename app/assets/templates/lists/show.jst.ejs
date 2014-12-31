@@ -1,0 +1,10 @@
+<h2><%= list.escape("title") %></h2>
+
+<ul class="list">
+  <% cards.each(function (card) { %>
+    <li class="card" data-id="<%= card.id %>">
+      <%= card.escape("title") %>
+    </li>
+  <% }); %>
+
+</ul>

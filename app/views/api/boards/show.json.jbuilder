@@ -6,5 +6,11 @@
 json.extract! @board, :title
 
 json.lists @board.lists do |board, list|
+  json.id list.id
   json.title list.title
+
+  json.cards list.cards do |list, card|
+    json.id card.id
+    json.title card.title
+  end
 end
