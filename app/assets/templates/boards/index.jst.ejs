@@ -1,10 +1,9 @@
-<h1>All the boards</h1>
-<ul>
+<h1 class="board-list-header">All the boards</h1>
+<ul class="board-list group">
   <% boards.each(function (board) { %>
     <li class="board" data-id="<%= board.id %>">
       <%= board.escape("title") %>
     </li>
   <% }); %>
+  <li class="make-board">Make a new Board</li>
 </ul>
-
-<a href="#/boards/new">Make a new Board</a>

@@ -19,6 +19,7 @@ TrelloClone.Views.BoardsNew = Backbone.View.extend({
     this.model.save(attrs, {
       success: function () {
         view.collection.add(view.model);
+        view.$el.find("form").addClass("hidden");
         Backbone.history.navigate("", { trigger: true } )
       },
 
