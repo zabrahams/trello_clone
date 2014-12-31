@@ -21,8 +21,16 @@ TrelloClone.Views.ListsForm = Backbone.View.extend({
     event.preventDefault();
     var listAttrs = $(event.currentTarget).serializeJSON();
     listAttrs.list.board_id = this.collection.board.id;
-    console.log(listAttrs);
-    this.model.save(listAttrs.list);
+    this.model.save(listAttrs.list, {
+      success: function () {
+        this.collection.add(this.model);
+        this.collection.board.fetch();
+      }.bind(this),
+
+      error: function () {
+        console.log("Error creating the list.")
+      }
+    });
   }
 
 });
