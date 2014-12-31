@@ -1,5 +1,11 @@
 TrelloClone.Views.ListsShow = Backbone.CompositeView.extend({
 
+  initialize: function () {
+    this.listenTo(this.model, "update", function () {  // Not sure why the one liner doesn't work...
+      this.collection.board.fetch();
+    }.bind(this)
+  )},
+
   tagName: "li",
 
   events: {
@@ -16,7 +22,10 @@ TrelloClone.Views.ListsShow = Backbone.CompositeView.extend({
       this.addSubview("dl.list", cardView);
     }.bind(this));
 
-    var cardFormView = new TrelloClone.Views.CardsNew( { model: new TrelloClone.Models.Card() } );
+    var cardFormView = new TrelloClone.Views.CardsNew( {
+      model: new TrelloClone.Models.Card(),
+      collection: this.model.cards()
+    });
     this.addSubview("dl.list", cardFormView);
 
     return this
@@ -24,9 +33,7 @@ TrelloClone.Views.ListsShow = Backbone.CompositeView.extend({
 
   deleteList: function (event) {
     this.model.destroy({
-      success: function () {
-        this.collection.board.fetch();
-      }.bind(this),
+      success: this.collection.board.fetch,
       error: function () {
         console.log("Error: List could not be destroyed.")
       }

@@ -1,4 +1,4 @@
-TrelloClone.Views.ListsForm = Backbone.View.extend({
+TrelloClone.Views.ListsNew = Backbone.View.extend({
 
   tagName: "li",
 
