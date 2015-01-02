@@ -33,7 +33,10 @@ TrelloClone.Views.ListsShow = Backbone.CompositeView.extend({
 
   deleteList: function (event) {
     this.model.destroy({
-      success: this.collection.board.fetch,
+      success: function () {
+        this.collection.board.fetch();
+      }.bind(this),
+
       error: function () {
         console.log("Error: List could not be destroyed.")
       }
