@@ -2,6 +2,8 @@ TrelloClone.Views.CardsNew = Backbone.View.extend({
 
   tagName: "li",
 
+  className: "card-form hidden",
+
   events: {
     "submit form.new-card": "newCard"
   },
