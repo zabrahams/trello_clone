@@ -11,7 +11,8 @@ TrelloClone.Views.ListsShow = Backbone.CompositeView.extend({
   className: "list-container",
 
   events: {
-    "click button.delete-list": "deleteList"
+    "click button.delete-list": "deleteList",
+    "click button.add-card": "showCardForm"
   },
 
   template: JST['lists/show'],
@@ -44,6 +45,11 @@ TrelloClone.Views.ListsShow = Backbone.CompositeView.extend({
       }
     });
 
+  },
+
+  showCardForm: function (event) {
+    this.$("button.add-card").addClass("hidden");
+    this.$(".card-form").removeClass("hidden");
   }
 
 });

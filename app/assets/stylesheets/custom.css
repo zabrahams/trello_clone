@@ -93,7 +93,7 @@ section.list-section {
 li.list-container {
   list-style: none;
   background: lightgrey;
-  width: 200px;
+  width: 240px;
   float: left;
   margin: 50px;
   padding: 10px;
@@ -107,7 +107,7 @@ li.list-container {
 section.list-form {
   list-style: none;
   background: white;
-  width: 200px;
+  width: 240px;
   float: left;
   margin: 50px;
   padding: 10px;
@@ -121,7 +121,7 @@ section.list-form {
 ul.list {
   margin: auto;
   padding: 10px;
-  width: 178px;
+  width: 220px;
 }
 
 ul.list li {
@@ -145,4 +145,18 @@ button.add-card {
 button.delete-card {
   padding: 5px;
   margin: 10px;
+}
+
+/* New Card Styles */
+
+form.new-card {
+  width: 180px;
+}
+
+form.new-card input {
+  width: 160px;
+}
+
+form.new-card textarea {
+  width: 160px;
 }
