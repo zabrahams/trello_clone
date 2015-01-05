@@ -30,7 +30,9 @@ TrelloClone.Views.ListsShow = Backbone.CompositeView.extend({
     });
 
     this.addSubview("ul.list", cardFormView);
-    this.$('ul.list').sortable();
+    this.$('ul.list').sortable({
+      items: "li.card"
+    });
     return this
   },
 

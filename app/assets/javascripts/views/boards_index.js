@@ -20,6 +20,9 @@ TrelloClone.Views.BoardsIndex = Backbone.View.extend({
     this._formView = boardsNewView;
 
     this.$("li.make-board").html(boardsNewView.render().$el)
+    this.$('ul.board-list').sortable({
+      items: "li.board"
+    });
     return this;
   },
 
